@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.douzone.jblog.security.AuthUser;
+import com.douzone.jblog.vo.UserVo;
+
 @Controller
 @RequestMapping("/{id:(?!assets).*}")
 public class BlogController {
@@ -31,8 +34,12 @@ public class BlogController {
 		return null;
 	}
 	
-	@RequestMapping("/id")
-	public String adminBasic(@PathVariable("id") String id) {
+	@RequestMapping("/admin/basic")
+	public String adminBasic(@PathVariable("id") String id, @AuthUser UserVo authUser) {
+		if(!authUser.getId().equals(id)) {
 		return null;
+		}
+		
+		return "";
 	}
 }

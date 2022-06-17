@@ -22,7 +22,7 @@
 	<mvc:annotation-driven>
 		<!-- Argument Resolver -->
 		<mvc:argument-resolvers>
-			<bean class = "com.douzone.mysite.security.AuthUserHandlerMethodArgumentResolver" />
+			<bean class = "com.douzone.jblog.security.AuthUserHandlerMethodArgumentResolver" />
 		</mvc:argument-resolvers>
 	</mvc:annotation-driven>
 	
@@ -36,7 +36,7 @@
 	</bean>
 	
 	<!-- MVC Resource Mapping -->
-	<mvc:resources mapping="/assets/gallery/**" location="file:/mysite-uploads/" />
+	<mvc:resources mapping="/assets/gallery/**" location="file:/jblog-uploads/" />
 	
 	<!-- Multipart Resolver -->
 	<bean id="multipartResolver" 
@@ -56,12 +56,12 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/user/auth"/>
-			<bean class="com.douzone.mysite.security.LoginInterceptor"/>	
+			<bean class="com.douzone.jblog.security.LoginInterceptor"/>	
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
 			<mvc:mapping path="/user/logout"/>
-			<bean class="com.douzone.mysite.security.LogoutInterceptor"/>	
+			<bean class="com.douzone.jblog.security.LogoutInterceptor"/>	
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
@@ -69,7 +69,7 @@
 			<mvc:exclude-mapping path="/assets/**"/>
 			<mvc:exclude-mapping path="/user/auth"/>
 			<mvc:exclude-mapping path="/user/logout"/>
-			<bean class="com.douzone.mysite.security.SiteInterceptor"/>	
+			<bean class="com.douzone.jblog.security.SiteInterceptor"/>	
 		</mvc:interceptor>
 		
 		<mvc:interceptor>
@@ -77,7 +77,7 @@
 			<mvc:exclude-mapping path="/assets/**"/>
 			<mvc:exclude-mapping path="/user/auth"/>
 			<mvc:exclude-mapping path="/user/logout"/>
-			<bean class="com.douzone.mysite.security.AuthInterceptor"/>	
+			<bean class="com.douzone.jblog.security.AuthInterceptor"/>	
 		</mvc:interceptor>
 		
 	</mvc:interceptors>
@@ -100,6 +100,6 @@
 	<!-- annotation setting : Auto 빈(Bean) 스캐닝(Scanning) -->
 	<context:annotation-config />
 	<context:component-scan
-		base-package="com.douzone.mysite.controller, com.douzone.mysite.exception" />
+		base-package="com.douzone.jblog.controller, com.douzone.jblog.exception" />
 
 </beans>
