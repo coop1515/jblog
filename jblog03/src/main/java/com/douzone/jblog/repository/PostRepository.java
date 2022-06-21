@@ -15,7 +15,15 @@ public class PostRepository {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public List<PostVo> findAll() {
-		return sqlSession.selectList("post.findAll");
+	public List<PostVo> findAll(Long categoryNo) {
+		return sqlSession.selectList("post.findAll", categoryNo);
+	}
+
+	public void insertPost(String title, Long no, String contents) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("title", title);
+		map.put("no", no);
+		map.put("contents", contents);
+		sqlSession.insert("post.insert", map);
 	}
 }

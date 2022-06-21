@@ -6,7 +6,7 @@
 
 <ul class="admin-menu">
 	<c:if test=""></c:if>
-	<li><a href="${pageContext.request.contextPath }/${authUser.id}/modify">기본설정</a></li>
-	<li><a href="${pageContext.request.contextPath }/${authUser.id}/category">카테고리</a></li>
-	<li class="selected"><a href="${pageContext.request.contextPath }/${authUser.id}/write">글작성</a></li>
+	<li><a href="${pageContext.request.contextPath }/${authUser.id}/admin/modify">기본설정</a></li>
+	<li><a href="${pageContext.request.contextPath }/${authUser.id}/admin/category">카테고리</a></li>
+	<li class="selected"><a href="${pageContext.request.contextPath }/${authUser.id}/admin/write">글작성</a></li>
 </ul>

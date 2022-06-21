@@ -21,6 +21,4 @@ public class BlogService {
 	public BlogVo getBlog(String id) {
 		return blogRepository.find(id);
 	}
-
-
 }

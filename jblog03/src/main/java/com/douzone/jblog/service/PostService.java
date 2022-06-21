@@ -14,8 +14,13 @@ public class PostService {
 	@Autowired
 	private PostRepository postRepository; 
 	
-	public List<PostVo> getPostList() {
-		return postRepository.findAll();
+	public List<PostVo> getPostList(Long categoryNo) {
+		return postRepository.findAll(categoryNo);
+	}
+
+	public void insertPost(String title, Long no, String contents) {
+		postRepository.insertPost(title, no, contents);
+		
 	}
 
 }

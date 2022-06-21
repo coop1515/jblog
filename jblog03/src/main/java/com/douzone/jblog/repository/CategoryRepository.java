@@ -15,12 +15,28 @@ public class CategoryRepository {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public List<CategoryVo> findCategory(String id, Long categoryNo) {
+	public List<CategoryVo> findCategory(String id) {
+		return sqlSession.selectList("category.findCategory",id);
+		
+	}
+
+	public void categoryinsert(String name, String desc, String id) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("desc", desc);
+		map.put("name", name);
+		map.put("id", id);
+		sqlSession.insert("category.categoryinsert",map);		
+	}
+
+	public Long lastCategory(String id) {
+		return sqlSession.selectOne("category.lastCategory",id);
+		
+	}
+
+	public Long getNo(String id, String category) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("id", id);
-		map.put("no", categoryNo);
-//		System.out.println(id +" aaa"+ categoryNo);
-		return sqlSession.selectList("category.findByIDAndNo",map);
-		
+		map.put("category", category);
+		return sqlSession.selectOne("category.getNo",map);
 	}
 }

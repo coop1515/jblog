@@ -43,10 +43,21 @@
 						<td>15</td>
 						<td>어쩌구 저쩌구</td>
 						<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
-					</tr>					  
+					</tr>
+					<c:set var='count' value='${fn:length(list) }' />
+					<c:forEach items = '${list }' var ='vo' varStatus='status'>
+					<tr>
+						<td>${count-status.index}</td>
+						<td>${vo.name }</td>
+						<td>15</td>
+						<td>${vo.description}</td>
+						<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
+					</tr>
+					</c:forEach>					  
 				</table>
       	
       			<h4 class="n-c">새로운 카테고리 추가</h4>
+      			<form action ="${pageContext.request.contextPath }/${authUser.id}/admin/category" method = post>
 		      	<table id="admin-cat-add">
 		      		<tr>
 		      			<td class="t">카테고리명</td>
@@ -61,6 +72,7 @@
 		      			<td><input type="submit" value="카테고리 추가" ></td>
 		      		</tr>      		      		
 		      	</table> 
+		      	</form>
 			</div>
 		</div>
 		<c:import url="/WEB-INF/views/includes/footer.jsp"/>

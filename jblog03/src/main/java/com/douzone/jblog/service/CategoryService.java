@@ -14,8 +14,22 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	public List<CategoryVo> getCategories(String id, Long categoryNo) {
-		return categoryRepository.findCategory(id,categoryNo);
+	public List<CategoryVo> getCategories(String id) {
+		return categoryRepository.findCategory(id);
+	}
+
+	public void categoryinsert(String name, String desc, String id) {
+		categoryRepository.categoryinsert(name,desc, id);
+		
+	}
+
+	public Long lastCategory(String id) {
+		return categoryRepository.lastCategory(id);
+		
+	}
+
+	public Long getNo(String id, String category) {
+		return categoryRepository.getNo(id,category);
 	}
 
 }

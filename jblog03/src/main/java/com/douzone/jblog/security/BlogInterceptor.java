@@ -29,7 +29,6 @@ public class BlogInterceptor implements HandlerInterceptor {
 		if(vo == null) {
 			return false;
 		}
-		
 		sc.setAttribute("blog", vo);
 		return true;
 	}

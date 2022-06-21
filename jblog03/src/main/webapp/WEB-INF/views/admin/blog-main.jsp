@@ -33,7 +33,8 @@
 					<li><a href="">Spring Boot 사용법 정리</a> <span>2015/05/02</span>	</li>
 					<li><a href="">Spring Security 설정법</a> <span>2015/05/02</span>	</li>
 					<li><a href="">JPA + Hinernate</a> <span>2015/05/02</span>	</li>
-					<li><a href="">AOP 활용하기 - DAO 실행시간 측정하기</a> <span>2015/05/02</span>	</li>
+					<li><a href="">AOP 활용하기 - DAO 실행시간 측정하기</a> <span>2015/05/02</span> </li>
+					
 					<c:forEach items = '${postlist }' var ='vo2' varStatus='status'>
 					<li><a href="">${vo2.title }</a> <span>2015/05/02</span>	</li>
 					</c:forEach>
@@ -56,7 +57,7 @@
 				<li><a href="">스프링 프로젝트</a></li>
 				<li><a href="">기타</a></li>
 				<c:forEach items = '${categorylist }' var ='vo' varStatus='status'>
-				<li><a href="">${vo.name }</a></li>
+				<li><a href="${pageContext.request.contextPath }/${blog.id}/${vo.no}">${vo.name }</a></li>
 				</c:forEach>
 			</ul>
 		</div>
