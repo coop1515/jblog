@@ -16,8 +16,13 @@
 	</insert>
 	
 	<select id = "findCategory" parameterType="string" resultType ="categoryvo">
-	 	<![CDATA[
+	 	<!-- <![CDATA[
 	 		select * from category where blog_id = #{id}
+	 	]]> -->
+	 	<![CDATA[
+	 		select a.no, a.blog_id, a.description,a.name, count(b.category_no) as postCount
+	 		 from category a left join post b on a.no = b.category_no 
+	 		 where a.blog_id = #{id} group by a.no;
 	 	]]>
 	</select>
 	

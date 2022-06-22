@@ -21,11 +21,14 @@
 					<tr>
 						<td>${count-status.index}</td>
 						<td>${vo.name }</td>
-						<td>15</td>
+						<td>${vo.postCount }</td>
 						<td>${vo.description}</td>
-						<td><a href="${pageContext.request.contextPath }/${authUser.id}/admin/delete/${vo.no}">
+						<td>
+						<c:if test="${vo.postCount == 0}">
+						<a href="${pageContext.request.contextPath }/${authUser.id}/admin/delete/${vo.no}">
 							<img src="${pageContext.request.contextPath}/assets/images/delete.jpg">
-							</a></td>
+							</a>
+							</c:if></td>
 					</tr>
 					</c:forEach>					  
 				</table>
