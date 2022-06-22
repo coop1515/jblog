@@ -1,5 +1,5 @@
 -- category
-
+select * from category;
 select no from category where name = 'second' and blog_id = '1234';
 
 insert into category values (null,'second','카테고리입니다','12345');

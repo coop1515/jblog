@@ -24,8 +24,11 @@ public class BlogInterceptor implements HandlerInterceptor {
 		ServletContext sc = request.getServletContext();
 		HttpSession session = request.getSession();
 		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		if(authUser == null) {
+			return true;
+		}
 		BlogVo vo = blogService.getBlog(authUser.getId());
-		System.out.println(vo);
+//		System.out.println(vo);
 		if(vo == null) {
 			return false;
 		}

@@ -32,4 +32,9 @@ public class CategoryService {
 		return categoryRepository.getNo(id,category);
 	}
 
+	public void delete(Long no) {
+		categoryRepository.delete(no);
+		
+	}
+
 }

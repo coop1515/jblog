@@ -23,4 +23,8 @@ public class PostService {
 		
 	}
 
+	public PostVo postOne(Long categoryNo, Long postNo) {
+		return postRepository.findOne(categoryNo, postNo);
+	}
+
 }

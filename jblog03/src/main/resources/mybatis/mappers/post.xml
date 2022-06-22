@@ -4,14 +4,25 @@
 <mapper namespace="post">
 <select id = "findAll" parameterType = "long" resultType="postvo">
 		<![CDATA[
-		 select * from post where category_no = #{categoryNo} order by no desc
+		 select no, title, contents, category_no as categoryNo from post where category_no = #{categoryNo} order by no desc
 		]]>
+	
 	</select>
 	
 	<insert id = "insert" parameterType="map">
 		<![CDATA[
 			insert into post values (null,#{title},#{contents}, #{no})
 		]]>
-		
 	</insert>
+	
+	<select id = "findOne" parameterType = "map" resultType="postvo">
+		<choose>
+			<when test='postNo == 0'>
+				select no, title, contents, category_no as categoryNo from post where category_no = #{categoryNo} order by no desc limit 1
+			</when>
+			<otherwise>
+				select no, title, contents, category_no as categoryNo from post where category_no = #{categoryNo} and no = #{postNo}
+			</otherwise>
+		</choose>
+	</select>
 </mapper>

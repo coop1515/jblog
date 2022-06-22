@@ -39,4 +39,9 @@ public class CategoryRepository {
 		map.put("category", category);
 		return sqlSession.selectOne("category.getNo",map);
 	}
+
+	public void delete(Long no) {
+		sqlSession.delete("category.delete", no);
+		
+	}
 }

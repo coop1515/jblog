@@ -1,6 +1,6 @@
 -- post
 
-select * from post where category_no = 10;
+select * from post;
 
 insert into post values (null, '하이', 'ㅋㅋ', 16);
 

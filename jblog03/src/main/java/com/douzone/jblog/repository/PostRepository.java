@@ -26,4 +26,11 @@ public class PostRepository {
 		map.put("contents", contents);
 		sqlSession.insert("post.insert", map);
 	}
+
+	public PostVo findOne(Long categoryNo, Long postNo) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("categoryNo", categoryNo);
+		map.put("postNo", postNo);
+		return sqlSession.selectOne("post.findOne", map);
+	}
 }

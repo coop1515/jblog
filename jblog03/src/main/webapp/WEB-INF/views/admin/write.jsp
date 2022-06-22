@@ -22,8 +22,6 @@
 			      			<td>
 			      				<input type="text" size="60" name="title">
 				      			<select name="category">
-				      				<option>미분류</option>
-				      				<option>자바</option>
 				      				<c:forEach items = '${list }' var ='vo' varStatus='status'>
 				      				<option>${vo.name}</option>
 				      				</c:forEach>

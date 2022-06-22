@@ -57,21 +57,19 @@ public class BlogController {
 		}
 		BlogVo vo = blogService.getBlog(id);
 		model.addAttribute("blog",vo);
-//		System.out.println(vo);
+		
 		List<CategoryVo> list = categoryService.getCategories(id);
 		model.addAttribute("categorylist", list);
-//		System.out.println(categoryNo);
+
 		if(categoryNo == 0) {
 			categoryNo = categoryService.lastCategory(id);
-//			System.out.println(categoryNo);
+
 		}
 		List<PostVo> postlist = postService.getPostList(categoryNo);
-//		System.out.println(postlist);
 		model.addAttribute("postlist", postlist);
-//		System.out.println(postlist.get(1));
+		PostVo postone = postService.postOne(categoryNo, postNo);
 		if(!postlist.isEmpty()) {
-			model.addAttribute("postfirst", postlist.get(0));
-			
+			model.addAttribute("postfirst", postone);
 		}
 		return "admin/blog-main";
 	}
@@ -83,7 +81,7 @@ public class BlogController {
 		if(!authUser.getId().equals(id)) {
 		return null;
 		}
-		BlogVo vo = blogService.getBlog(id);
+		blogService.getBlog(id);
 
 		return "admin/basic";
 	}
@@ -148,6 +146,19 @@ public class BlogController {
 		return null;
 		}
 		categoryService.categoryinsert(name, desc, id);
+		return "redirect:/{id}/admin/category";
+	}
+	
+	@Auth
+	@RequestMapping("/admin/delete/{no}")
+	public String delete(@PathVariable("id") String id, @AuthUser UserVo authUser, Model model,
+			@PathVariable("no") Long no) {
+		if(!authUser.getId().equals(id)) {
+		return null;
+		}
+		System.out.println(no);
+		categoryService.delete(no);
+
 		return "redirect:/{id}/admin/category";
 	}
 }

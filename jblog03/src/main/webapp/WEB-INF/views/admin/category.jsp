@@ -16,34 +16,6 @@
 			<div id="content" class="full-screen">
 				<c:import url="/WEB-INF/views/includes/admin-menu.jsp"/>
 		      	<table class="admin-cat">
-		      		<tr>
-		      			<th>번호</th>
-		      			<th>카테고리명</th>
-		      			<th>포스트 수</th>
-		      			<th>설명</th>
-		      			<th>삭제</th>      			
-		      		</tr>
-					<tr>
-						<td>3</td>
-						<td>미분류</td>
-						<td>10</td>
-						<td>카테고리를 지정하지 않은 경우</td>
-						<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
-					</tr>  
-					<tr>
-						<td>2</td>
-						<td>스프링 스터디</td>
-						<td>20</td>
-						<td>어쩌구 저쩌구</td>
-						<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>스프링 프로젝트</td>
-						<td>15</td>
-						<td>어쩌구 저쩌구</td>
-						<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
-					</tr>
 					<c:set var='count' value='${fn:length(list) }' />
 					<c:forEach items = '${list }' var ='vo' varStatus='status'>
 					<tr>
@@ -51,7 +23,9 @@
 						<td>${vo.name }</td>
 						<td>15</td>
 						<td>${vo.description}</td>
-						<td><img src="${pageContext.request.contextPath}/assets/images/delete.jpg"></td>
+						<td><a href="${pageContext.request.contextPath }/${authUser.id}/admin/delete/${vo.no}">
+							<img src="${pageContext.request.contextPath}/assets/images/delete.jpg">
+							</a></td>
 					</tr>
 					</c:forEach>					  
 				</table>
