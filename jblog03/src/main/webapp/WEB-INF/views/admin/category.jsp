@@ -16,6 +16,13 @@
 			<div id="content" class="full-screen">
 				<c:import url="/WEB-INF/views/includes/admin-menu.jsp"/>
 		      	<table class="admin-cat">
+		      		<tr>
+		      			<th>번호</th>
+		      			<th>카테고리명</th>
+		      			<th>포스트 수</th>
+		      			<th>설명</th>
+		      			<th>삭제</th>      			
+		      		</tr>
 					<c:set var='count' value='${fn:length(list) }' />
 					<c:forEach items = '${list }' var ='vo' varStatus='status'>
 					<tr>
