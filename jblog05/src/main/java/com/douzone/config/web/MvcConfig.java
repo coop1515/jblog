@@ -27,9 +27,15 @@ public class MvcConfig implements WebMvcConfigurer {
 	}
 	
 	// 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러
+//	@Override
+//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+//		configurer.enable();
+//	}
+	
 	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/assets/**")
+		.addResourceLocations("classpath:/static/");
+		}
 
 }
