@@ -27,6 +27,9 @@ public class BlogInterceptor implements HandlerInterceptor {
 		if(authUser == null) {
 			return true;
 		}
+
+//		Map<?, ?> pathVariables = (Map<?, ?>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);		
+//		String blogId = (String)pathVariables.get("id");
 		BlogVo vo = blogService.getBlog(authUser.getId());
 //		System.out.println(vo);
 		if(vo == null) {

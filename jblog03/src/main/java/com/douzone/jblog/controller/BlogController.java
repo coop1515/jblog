@@ -95,7 +95,6 @@ public class BlogController {
 		vo.setLogo(url);
 
 		blogService.updateBlog(vo);
-
 		
 		return "redirect:/{id}/admin/modify";
 	}
